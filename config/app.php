@@ -168,6 +168,9 @@ return [
          */
         Laravel\Tinker\TinkerServiceProvider::class,
 
+        // barryvdh/laravel-ide-helper
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
