@@ -12,10 +12,3 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 }
-
-class JsonMovies extends BaseController{
-    public function show_json()
-    {
-        return Movies::up();
-    }
-}

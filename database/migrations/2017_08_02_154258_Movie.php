@@ -16,7 +16,7 @@ class Movie extends Migration
         Schema::create('movie', function (Blueprint $table){
             $table->increments('id');
             $table->string('name', 35);
-            $table->dateTimeTz('last_update');
+            $table->timestamps();
             $table->boolean('tracking');
             $table->smallInteger('season');
             $table->smallInteger('episode');

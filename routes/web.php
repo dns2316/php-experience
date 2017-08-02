@@ -12,5 +12,15 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome', [
+        'name' => 'World'
+    ]);
+});
+
+Route::get('movie',function () {
+
+    // in json format
+//    $movies = DB::table('movie')->get();
+
+//    return $movies;
 });
