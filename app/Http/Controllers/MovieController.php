@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 class MovieController extends Controller
 {
+    use App\Movie;
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +14,7 @@ class MovieController extends Controller
      */
     public function index()
     {
-        return App\Movie::all();
+        return Movie::all();
     }
 
     /**
@@ -45,7 +46,7 @@ class MovieController extends Controller
      */
     public function show($id)
     {
-        return App\Movie::find($id);
+        return Movie::find($id);
     }
 
     /**
