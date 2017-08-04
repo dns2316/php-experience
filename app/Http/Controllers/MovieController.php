@@ -36,7 +36,21 @@ class MovieController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|unique:movie|max:255',
+            'season' => 'required|integer',
+            'episode'=> 'required|integer',
+            'url' => 'required|url',
+            'img' => 'nullable|url',
+        ]);
+        Movie::create([
+            'name'=>request('name'),
+            'season'=>request('season'),
+            'episode'=>request('episode'),
+            'url'=>request('url'),
+            'img'=>request('img'),
+        ]);
+        return redirect('/movie');
     }
 
     /**
