@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Movie;
+
 class MovieController extends Controller
 {
-    use App\Movie;
     /**
      * Display a listing of the resource.
      *
@@ -46,7 +47,7 @@ class MovieController extends Controller
      */
     public function show($id)
     {
-        return Movie::find($id);
+        return Movie::findOrFail($id);
     }
 
     /**

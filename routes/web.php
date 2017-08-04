@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+//namespace App\Http\Controllers;
 
 Route::get('/', function () {
     return view('welcome', [
@@ -17,10 +18,6 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('movie',function () {
+Route::get('movie', 'MovieController@index');
 
-    // in json format
-//    $movies = DB::table('movie')->get();
-
-//    return $movies;
-});
+Route::get('movie/{id}', 'MovieController@show');
