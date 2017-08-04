@@ -52,7 +52,6 @@ class MovieController extends Controller
         ]);
         return redirect('/movie');
     }
-
     /**
      * Display the specified resource.
      *
