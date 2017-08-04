@@ -11,23 +11,24 @@ class VideoParser extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'movie:parse';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Parse movie command';
+
 
     /**
      * Create a new command instance.
-     *
      * @return void
      */
     public function __construct()
     {
         parent::__construct();
+
     }
 
     /**
@@ -37,6 +38,6 @@ class VideoParser extends Command
      */
     public function handle()
     {
-        //
+        echo "Hello world";
     }
 }
