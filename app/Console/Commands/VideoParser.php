@@ -84,17 +84,17 @@ class VideoParser extends Command
                 }
 //                add episode to season array
 //                error in append to array in (arr1, arr2). Maybe need wrap in brackets arr2?!
-                array_push($season_arr,
-                    $episode_number => array(
+                array_merge($season_arr,
+                    $episode_number = [
                         "name" => $episode_name,
                         "date" => $episode_date,
                         "ready_dwl" => $episode_download_btn
-                    );
-                )
+                    ]
+                );
             }
 
 //            add season array to serial array
-            array_push($serial_arr, $season_arr);
+            array_merge($serial_arr, $season_arr);
 
             $index ++;
         }
@@ -113,16 +113,16 @@ class VideoParser extends Command
             $link_seed = $link_in_cycle->query('//td[@class="column seed-leech"] span[@class="seed"]');
             $link_download_url = $link_in_cycle->query('//td[@class="column last download"] a')->getAttribute("data-default");
 
-            $episode_arr = array(
+            $episode_arr = [
                 "quality" => $link_quality,
                 "audio" => $link_audio,
                 "size" => $link_size,
                 "seed" => $link_seed,
                 "magnet" => $link_download_url
-            );
+            ];
 
 //            add array 1 link to array all links episode
-            array_push($episode_links, $episode_arr);
+            array_merge($episode_links, $episode_arr);
         }
     }
 }
