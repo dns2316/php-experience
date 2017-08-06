@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Console\Commands;
 
@@ -20,7 +20,6 @@ class VideoParser extends Command
      */
     protected $description = 'Parse movie command';
 
-
     /**
      * Create a new command instance.
      * @return void
@@ -28,7 +27,6 @@ class VideoParser extends Command
     public function __construct()
     {
         parent::__construct();
-
     }
 
     /**
@@ -40,7 +38,7 @@ class VideoParser extends Command
     {
         $url = 'http://www.torrentino.me/serial/'.$serial;
 
-        $xp=new \DOMXPath(@\DOMDocument::loadHTMLFile($url));
+        $xp = new \DOMXPath(@\DOMDocument::loadHTMLFile($url));
 
 //        summary info about serial   site/serial/id-name
 //        =======================================================================================
@@ -59,17 +57,15 @@ class VideoParser extends Command
 //        then find by index season
         $index = $count_seasons;
         while ($index > 0) {
-
             $episode_in_season = $table_episodes_in_season[$index]->query('//tr[@class="item"]');
 
 //            make season array
-            $season_arr = array(
-                "season" => $season_number_in_list[$index]
-            );
+            $season_arr = [
+                "season" => $season_number_in_list[$index],
+            ];
 
 //            foreach episodes in season
-            foreach($episode_in_season as $episode_in_cycle)
-            {
+            foreach ($episode_in_season as $episode_in_cycle) {
                 $episode_number = $episode_in_cycle->query('//td[@class="column first episode"]');
                 $episode_name = $episode_in_cycle->query('//td[@class="column name"]');
                 $episode_date = $episode_in_cycle->query('//td[@class="column date"]');
@@ -77,7 +73,7 @@ class VideoParser extends Command
 
 //                boolean toogle download button (if button empty (without "download") = false, else: button = true).
 //                isset or empty?
-                if ( empty($episode_download_btn) ){
+                if (empty($episode_download_btn)) {
                     $episode_download_btn = false;
                 } else {
                     $episode_download_btn = true;
@@ -88,7 +84,7 @@ class VideoParser extends Command
                     $episode_number = [
                         "name" => $episode_name,
                         "date" => $episode_date,
-                        "ready_dwl" => $episode_download_btn
+                        "ready_dwl" => $episode_download_btn,
                     ]
                 );
             }
@@ -106,7 +102,7 @@ class VideoParser extends Command
 
         $episode_links = [];
 
-        foreach($link as $link_in_cycle){
+        foreach ($link as $link_in_cycle) {
             $link_quality = $link_in_cycle->query('//td[@class="column first video"]');
             $link_audio = $link_in_cycle->query('//td[@class="column audio"]');
             $link_size = $link_in_cycle->query('//td[@class="column size"]');
@@ -118,7 +114,7 @@ class VideoParser extends Command
                 "audio" => $link_audio,
                 "size" => $link_size,
                 "seed" => $link_seed,
-                "magnet" => $link_download_url
+                "magnet" => $link_download_url,
             ];
 
 //            add array 1 link to array all links episode

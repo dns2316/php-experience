@@ -1,10 +1,10 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 use App\Movie;
+
+use Illuminate\Http\Request;
 
 class MovieController extends Controller
 {
@@ -39,23 +39,24 @@ class MovieController extends Controller
         $this->validate($request, [
             'name' => 'required|unique:movie|max:255',
             'season' => 'required|integer',
-            'episode'=> 'required|integer',
+            'episode' => 'required|integer',
             'url' => 'required|url',
             'img' => 'nullable|url',
         ]);
         Movie::create([
-            'name'=>request('name'),
-            'season'=>request('season'),
-            'episode'=>request('episode'),
-            'url'=>request('url'),
-            'img'=>request('img'),
+            'name' => request('name'),
+            'season' => request('season'),
+            'episode' => request('episode'),
+            'url' => request('url'),
+            'img' => request('img'),
         ]);
         return redirect('/movie');
     }
+
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int                       $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -66,7 +67,7 @@ class MovieController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int                       $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -78,7 +79,7 @@ class MovieController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  int                       $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -89,7 +90,7 @@ class MovieController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int                       $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
