@@ -13,7 +13,7 @@ class VideoParser extends Command
      *
      * @var string
      */
-    protected $signature = 'movie:parse {serial} {id_name} {season} {episode} {--detailed} {--summary}';
+    protected $signature = 'movie:parse {id_name} {season} {episode} {--detailed} {--summary}';
 
     /**
      * The console command description.
@@ -48,9 +48,6 @@ class VideoParser extends Command
         // read parameters and option for run parser
         $option_detailed = $this->option('detailed');
         $option_summary = $this->option('summary');
-
-        // for send name to DB
-        $serial = $this->argument('serial');
 
         // $id_name must be type site/serial/id-name => 12345-name!
         $id_name = $this->argument('id_name');
@@ -143,7 +140,6 @@ class VideoParser extends Command
                         ]
                     );
                 }
-
 
                 $count_seasons --;
             }
