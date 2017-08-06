@@ -40,7 +40,7 @@ class VideoParser extends Command
     {
         $url = 'http://www.torrentino.me/serial/'.$serial;
 
-        $xp=new DOMXPath(@DOMDocument::loadHTMLFile($url));
+        $xp=new \DOMXPath(@\DOMDocument::loadHTMLFile($url));
 
 //        summary info about serial   site/serial/id-name
 //        =======================================================================================
