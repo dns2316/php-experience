@@ -51,7 +51,7 @@
         ],
         "create": "php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
         "generate": "php artisan key:generate",
-        "test": "vendor/bin/phpunit"
+        "test": "vendor/bin/phpunit --testsuite Unit"
     },
     "config": {
         "preferred-install": "dist",
