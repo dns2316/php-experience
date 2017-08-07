@@ -12,4 +12,4 @@ install:
 script:
   - composer create
   - composer generate
-  - composer test -- --coverage-clover=coverage.clover
+  - phpunit --testsuite Unit -- --coverage-clover=coverage.clover

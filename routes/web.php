@@ -10,15 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-//namespace App\Http\Controllers;
 
-Route::get('/', function () {
-    return view('welcome', [
-        'name' => 'World'
-    ]);
-});
-
+Route::get('/', 'MovieController@mainPage');
 Route::get('movie', 'MovieController@index');
-
 Route::get('movie/{id}', 'MovieController@show');
 Route::post('/movie/create','MovieController@store');

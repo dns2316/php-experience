@@ -8,6 +8,14 @@ use Illuminate\Http\Request;
 
 class MovieController extends Controller
 {
+
+    public function mainPage()
+    {
+        return view('welcome', [
+            'name' => 'World'
+        ]);
+    }
+
     /**
      * Display a listing of the resource.
      *
