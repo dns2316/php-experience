@@ -8,3 +8,8 @@ php:
 
 install:
   - composer install
+
+script:
+  - composer create
+  - composer generate
+  - composer test -- --coverage-clover=coverage.clover
